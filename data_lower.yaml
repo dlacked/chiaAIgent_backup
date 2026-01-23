@@ -1,0 +1,6 @@
+train: ./dataset/train/images/lower
+val: ./dataset/val/images/lower
+
+nc: 1
+# names: [None, None, None, None, None, None, None, None, None, None, None, tooth_11, tooth_12, tooth_13, tooth_14, tooth_15, tooth_16, None, None, None, None, tooth_21, tooth_22, tooth_23, tooth_24, tooth_25, tooth_26, None, None, None, None, tooth_31, tooth_32, tooth_33, tooth_34, tooth_35, tooth_36, None, None, None, None, tooth_41, tooth_42, tooth_43, tooth_44, tooth_45, tooth_46]
+names: ['teeth']
