@@ -30,16 +30,16 @@ class Theta():
         if len(upper_half) == 0 or len(lower_half) == 0:
             return 0
 
-        y1, x1 = np.mean(upper_half, axis=0) # 위쪽 중심
-        y2, x2 = np.mean(lower_half, axis=0) # 아래쪽 중심
+        x1, y1 = np.mean(upper_half, axis=0) # 위쪽 중심
+        x2, y2 = np.mean(lower_half, axis=0) # 아래쪽 중심
 
         # 3. 하악(lower)은 아래에서 위로, 상악(upper)은 위에서 아래로 벡터 방향 고정
-        if self.oral_type == 'upper':
+        if self.oral_type == 'lower':
             # 잇몸(위) -> 치아끝(아래)
-            dx, dy = x2 - x1, y2 - y1
+            dx, dy = x1 - x2, y1 - y2
         else:
             # 잇몸(아래) -> 치아끝(위)
-            dx, dy = x1 - x2, y1 - y2
+            dx, dy = x2 - x1, y2 - y1
 
         return np.arctan2(dy, dx)
 

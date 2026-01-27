@@ -7,9 +7,10 @@ import os
 '''
 
 class Segmentation:
-    def __init__(self, oral_type):
+    # def __init__(self, oral_type):
+    def __init__(self):
         self.model = None
-        self.oral_type = oral_type
+        # self.oral_type = oral_type
 
     def set_model(self, path="yolov8n-seg.pt"):
         self.model = YOLO(path)
@@ -23,7 +24,8 @@ class Segmentation:
             return
         
         self.model.train(
-            data=f'./data_{self.oral_type}.yaml',
+            # data=f'./data_{self.oral_type}.yaml',
+            data='./data.yaml',
             epochs=40,
             imgsz=640,
             rect=True,
@@ -32,15 +34,16 @@ class Segmentation:
             close_mosaic=0,
 
             project='runs/segment',
-            name=self.oral_type
+            # name=self.oral_type
+            name='all'
         )
 
 if __name__ == "__main__":
-    print('lower/upper Default: lower')
-    oral_type = input()
-    if oral_type != 'upper':
-        oral_type = 'lower'
-    seg_model = Segmentation(oral_type)
+    # print('lower/upper Default: lower')
+    # oral_type = input()
+    # if oral_type != 'upper':
+    #     oral_type = 'lower'
+    seg_model = Segmentation()
     trained = seg_model.set_model() 
     # if(os.path.exists("./runs/")):
     #     print("segmentation model is already exists")

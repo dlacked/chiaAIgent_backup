@@ -34,17 +34,17 @@ class CropTeeth():
         for teeth in data['tooth']:
             teeth_num, teeth_sin, teeth_cos, is_cavity, x1, y1, x2, y2 = self.get_tooth_segmentation(teeth)
 
-            pad = 10
+            # pad = 10
             
-            h, w, _ = self.img.shape
-            x1, y1 = max(0, x1-pad), max(0, y1-pad)
-            x2, y2 = min(w, x2+pad), min(h, y2+pad)
+            # h, w, _ = self.img.shape
+            # x1, y1 = max(0, x1-pad), max(0, y1-pad)
+            # x2, y2 = min(w, x2+pad), min(h, y2+pad)
 
-            cropped = self.img[y1:y2, x1:x2]
-            cropped = cv2.resize(cropped, (224,224))
+            # cropped = self.img[y1:y2, x1:x2]
+            # cropped = cv2.resize(cropped, (224,224))
 
-            cv2.imwrite(f'{self.output_image_path}_{teeth_num}.png', cropped)
-            print(f"{self.output_image_path}_{teeth_num}.png is successfully saved")
+            # cv2.imwrite(f'{self.output_image_path}_{teeth_num}.png', cropped)
+            # print(f"{self.output_image_path}_{teeth_num}.png is successfully saved")
 
             data_list.append({
                 'img_dir': f'{self.output_image_path}_{teeth_num}.png',
@@ -53,7 +53,7 @@ class CropTeeth():
                 'teeth_cos': teeth_cos,
                 'is_cavity': is_cavity
             })
-            print(f"{self.output_image_path}_{teeth_num}.png csv data is successfully saved")
+            print(f"{self.output_image_path}_{teeth_num}.png csv data is successfully appended")
 
 if __name__ == "__main__":
     print("train/val and lower/upper")
