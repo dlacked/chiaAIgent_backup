@@ -26,7 +26,7 @@ class ToothClassification(nn.Module):
             nn.ReLU(),
             nn.Linear(16, 16),
             nn.ReLU()
-        )
+        ) 
 
         self.common_fc = nn.Sequential(
             nn.Linear(num_ftrs + 16, 256),
